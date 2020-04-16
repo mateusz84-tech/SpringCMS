@@ -1,4 +1,4 @@
-package pl.coderslab.domain;
+package pl.coderslab.domain.model;
 
 import javax.persistence.*;
 import java.util.Objects;
