@@ -9,12 +9,12 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     Long id;
     @Column(columnDefinition = "TEXT")
     String firstName;
     @Column(columnDefinition = "TEXT")
     String lastName;
+    @OneToMany(mappedBy = "alterna")
 
     @Override
     public boolean equals(Object o) {

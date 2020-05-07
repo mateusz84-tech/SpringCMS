@@ -9,13 +9,12 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     Long id;
     @Column(nullable = false,
             length = 100,
             columnDefinition = "TEXT")
     String name;
-    @Column(columnDefinition = "TEXT")
+    @Column(nullable = true)
     String description;
 
     @Override

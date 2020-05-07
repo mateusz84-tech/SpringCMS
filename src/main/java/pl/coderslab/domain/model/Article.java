@@ -3,6 +3,7 @@ package pl.coderslab.domain.model;
 import org.hibernate.mapping.ToOne;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,21 +16,45 @@ public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition = "TEXT", length = 200)
+    @Column(length = 200)
     private String title;
-    @OneToOne
-    @JoinColumn(name = "author_id")
+    @ManyToOne
+    @JoinColumn(name = "author")
     private Author author;
     @OneToMany
-    @JoinColumn(name = "category_id")
-    private List<Category> categories =
+    private List<Category> category =
             new ArrayList<>();
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "text")
     private String content;
-    @Column(columnDefinition = "TIME")
-    LocalTime created = LocalTime.now();
-    @Column(columnDefinition = "TIME")
-    LocalTime updated = LocalTime.now();
+    @Column(name = "created_on")
+    private LocalDateTime created;
+    @Column(name = "updated_on")
+    private LocalDateTime updated;
+
+    public Article(Long id, String title,
+                   Author author, List<Category> category,
+                   String content, LocalDateTime created,
+                   LocalDateTime updated) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.content = content;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    public Article() {
+    }
+
+    @PrePersist
+    public void prePersist(){
+        created = LocalDateTime.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        updated = LocalDateTime.now();
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -42,45 +67,6 @@ public class Article {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author=" + author +
-                ", categories=" + categories +
-                ", content='" + content + '\'' +
-                ", created=" + created +
-                ", updated=" + updated +
-                '}';
-    }
-
-    //=================
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalTime created) {
-        this.created = created;
-    }
-
-    public LocalTime getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(LocalTime updated) {
-        this.updated = updated;
     }
 
     public Long getId() {
@@ -107,11 +93,48 @@ public class Article {
         this.author = author;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public List<Category> getCategory() {
+        return category;
     }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author=" + author +
+                ", category=" + category +
+                ", content='" + content + '\'' +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
     }
 }
