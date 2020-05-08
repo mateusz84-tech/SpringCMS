@@ -20,6 +20,6 @@
 </form:form>
 <a href="${pageContext.request.contextPath}/formAuthor/add">Dodaj autora</a><br/>
 <a href="${pageContext.request.contextPath}/formAuthor/delete">Usuń autora</a><br/>
-<a href="${pageContext.request.contextPath}/formCategory/update">Edytuj autora</a><br/>
+<a href="${pageContext.request.contextPath}/formAuthor/update">Edytuj autora</a><br/>
 </body>
 </html>
