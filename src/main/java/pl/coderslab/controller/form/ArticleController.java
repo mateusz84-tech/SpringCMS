@@ -1,4 +1,4 @@
-package pl.coderslab.config;
+package pl.coderslab.controller.form;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
