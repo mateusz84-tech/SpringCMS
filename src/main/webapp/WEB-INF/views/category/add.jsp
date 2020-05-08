@@ -28,5 +28,9 @@
     <form:textarea path="description" rows="3" cols="20"/>
     <form:button>Dodaj</form:button>
 </form:form>
+<a href="${pageContext.request.contextPath}/formCategory/add">Dodaj następną</a><br/>
+<a href="${pageContext.request.contextPath}/category/showAll">Pokaż wszystkie kategorie</a><br/>
+<a href="${pageContext.request.contextPath}/formCategory/update">Edytuj kategorie</a><br/>
+<a href="${pageContext.request.contextPath}/formCategory/delete">Usuń kategorie</a><br/>
 </body>
 </html>

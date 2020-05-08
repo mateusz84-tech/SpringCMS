@@ -22,5 +22,9 @@
     <form:input path="description"/>
     <form:button>Edytuj</form:button>
 </form:form>
+<a href="${pageContext.request.contextPath}/formCategory/update">Edytuj następną</a><br/>
+<a href="${pageContext.request.contextPath}/category/showAll">Pokaż wszystkie kategorie</a><br/>
+<a href="${pageContext.request.contextPath}/formCategory/add">Dodaj kategorie</a><br/>
+<a href="${pageContext.request.contextPath}/formCategory/delete">Usuń kategorie</a><br/>
 </body>
 </html>

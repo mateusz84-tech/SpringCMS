@@ -18,5 +18,9 @@
     <form:input path="id"/>
     <form:button>Usuń</form:button>
 </form:form>
+<a href="${pageContext.request.contextPath}/formCategory/delete">Usuń następną</a><br/>
+<a href="${pageContext.request.contextPath}/category/showAll">Pokaż wszystkie kategorie</a><br/>
+<a href="${pageContext.request.contextPath}/formCategory/add">Dodaj kategorie</a><br/>
+<a href="${pageContext.request.contextPath}/formCategory/update">Edytuj kategorie</a><br/>
 </body>
 </html>
