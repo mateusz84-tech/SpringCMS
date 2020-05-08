@@ -18,7 +18,7 @@ public class Article {
     private Long id;
     @Column(length = 200)
     private String title;
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "author")
     private Author author;
     @OneToMany
