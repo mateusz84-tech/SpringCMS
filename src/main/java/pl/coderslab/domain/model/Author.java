@@ -14,8 +14,6 @@ public class Author {
     String firstName;
     @Column(columnDefinition = "TEXT")
     String lastName;
-    @OneToMany(mappedBy = "alterna")
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
